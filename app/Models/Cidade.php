@@ -12,4 +12,5 @@ class Cidade extends Model
     public $timestamps = false;
 
     protected $fillable = ['grupo_id', 'nome'];
+    
 }

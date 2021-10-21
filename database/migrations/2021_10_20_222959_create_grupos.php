@@ -15,7 +15,7 @@ class CreateGrupos extends Migration
     {
         Schema::create('grupos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 50);
+            $table->string('nome', 50);
         });
     }
 

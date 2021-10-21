@@ -15,7 +15,7 @@ class CreateCampanhas extends Migration
     {
         Schema::create('campanhas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 50);
+            $table->string('nome', 50);
             $table->string('flg_ativo', 1)->default('S');
         });
     }
