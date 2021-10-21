@@ -18,4 +18,14 @@ class Produto extends Model
         'valor'
     ];
 
+    public function desconto()
+    {
+        return $this->belongsTo(Desconto::class);
+    }
+
+    public function campanha()
+    {
+        return $this->belongsTo(Campanha::class);
+    }
+
 }

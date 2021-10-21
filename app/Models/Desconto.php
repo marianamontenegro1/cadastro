@@ -12,4 +12,10 @@ class Desconto extends Model
     public $timestamps = false;
 
     protected $fillable = ['nome', 'valor'];
+
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class);
+    }
+    
 }

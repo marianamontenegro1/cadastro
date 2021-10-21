@@ -12,4 +12,14 @@ class Campanha extends Model
     public $timestamps = false;
 
     protected $fillable = ['nome', 'flg_ativo'];
+
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class);
+    }
+
+    public function grupos()
+    {
+        return $this->belongsToMany(Grupo::class, "grupo_campanha");
+    }
 }

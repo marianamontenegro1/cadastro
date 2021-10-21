@@ -12,4 +12,14 @@ class Grupo extends Model
     public $timestamps = false;
 
     protected $fillable = ['nome'];
+
+    public function cidades()
+    {
+        return $this->hasMany(Cidade::class);
+    }
+
+    public function campanhas()
+    {
+        return $this->belongsToMany(Campanha::class, "grupo_campanha");
+    }
 }

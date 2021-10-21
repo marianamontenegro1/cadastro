@@ -13,4 +13,8 @@ class Cidade extends Model
 
     protected $fillable = ['grupo_id', 'nome'];
     
+    public function grupo()
+    {
+        return $this->belongsTo(Grupo::class);
+    }
 }
