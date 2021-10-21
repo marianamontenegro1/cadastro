@@ -14,9 +14,9 @@ class AddFkProdutos extends Migration
     public function up()
     {
         Schema::table('produtos', function (Blueprint $table) {
-            $table->unsignedBigInteger('campanha_id');
+            $table->unsignedBigInteger('campanha_id')->nullable();
             $table->foreign('campanha_id')->references('id')->on('campanhas');
-            $table->unsignedBigInteger('desconto_id');
+            $table->unsignedBigInteger('desconto_id')->nullable();
             $table->foreign('desconto_id')->references('id')->on('descontos');
         });
     }
