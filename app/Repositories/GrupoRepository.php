@@ -29,4 +29,14 @@ class GrupoRepository
 
         return $retorno;
     }
+
+    public function cadastrar(array $dados)
+    {
+        $grupo = new Grupo();
+
+        $grupo->nome = $dados['nome'];
+        $grupo->save();
+
+        return $grupo;
+    }
 }

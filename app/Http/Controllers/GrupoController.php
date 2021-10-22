@@ -21,4 +21,9 @@ class GrupoController extends Controller
     {
         return $this->grupoService->listar($request->all());
     }
+
+    public function cadastrar(Request $request)
+    {
+        return $this->grupoService->cadastrar($request->all());
+    }
 }

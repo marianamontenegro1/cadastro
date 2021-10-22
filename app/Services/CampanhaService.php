@@ -25,4 +25,9 @@ class CampanhaService
         }
 
     }
+
+    public function listarAtivoPorGrupo($id)
+    {
+        return $this->repository->listarAtivoPorGrupo($id);
+    }
 }

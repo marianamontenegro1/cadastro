@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Campanha;
+use Illuminate\Support\Facades\DB;
 
 class CampanhaRepository
 {
@@ -32,5 +33,16 @@ class CampanhaRepository
         $retorno = $model->get();
 
         return $retorno;
+    }
+
+    public function listarAtivoPorGrupo($idGrupo){
+        $campanha = DB::table('campanhas')
+            ->join('grupo_campanha', 'campanhas.id', '=', 'grupo_campanha.campanha_id')
+            ->select('campanhas.*')
+            ->where('campanhas.flg_ativo', '=', 'S')
+            ->where('grupo_campanha.grupo_id', '=', $idGrupo)
+            ->get();
+
+        return $campanha;
     }
 }

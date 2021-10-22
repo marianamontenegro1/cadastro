@@ -47,8 +47,15 @@ Obs: Caso seja efetuada a busca sem passar parametro, irá retornar todos os reg
 ```
 POST: /grupo/cadastrar
 {
-    "nome":"Grupo de teste",
-    "campanha_id": 1
+    "nome":"Grupo de teste"
+}
+```
+
+* Editar
+```
+POST: /grupo/editar/{id}
+{
+    "nome":"Cidade de teste"    
 }
 ```
 
@@ -64,4 +71,6 @@ Parametros: id, nome, flg_ativo
 ```
 
 Obs: Caso seja efetuada a busca sem passar parametro, irá retornar todos os registros de campanhas cadastros.
+
+
 
