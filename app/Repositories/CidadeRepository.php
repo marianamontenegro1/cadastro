@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CidadeRepository
 {    
     
-    protected $model = Cidade::class;
+    protected $model = Cidade::class;    
 
     public function listarTodos()
     {
@@ -34,5 +34,10 @@ class CidadeRepository
         $retorno = $model->get();
 
         return $retorno;
+    }
+
+    public function cadastrar(array $data)
+    {
+        return $this->model::create($data);
     }
 }

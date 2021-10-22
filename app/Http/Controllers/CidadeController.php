@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\CidadeService;
-use App\Models\Cidade;
 
 class CidadeController extends Controller
 {
@@ -17,24 +16,15 @@ class CidadeController extends Controller
     {
         $this->cidadeService = $cidadeService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function listar(Request $request)
-    {    
+    {
         return $this->cidadeService->listar($request->all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function cadastrar(Request $request)
     {
-        //
+        return $this->cidadeService->cadastrar($request->all());
     }
 
     /**

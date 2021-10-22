@@ -21,4 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('cidade')->group(function () {
     Route::get('/listar', [CidadeController::class, 'listar']);
+    Route::Post('/cadastrar', [CidadeController::class, 'cadastrar']);
 });
+
