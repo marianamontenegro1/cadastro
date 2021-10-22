@@ -56,4 +56,12 @@ class CidadeRepository
 
         return $cidade;
     }
+
+    public function excluir($id)
+    {
+        $cidade = Cidade::findOrFail( $id );
+        $cidade->delete();
+
+        return 'Excluído com sucesso';
+    }
 }

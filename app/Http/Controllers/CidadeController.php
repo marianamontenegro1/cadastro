@@ -32,4 +32,9 @@ class CidadeController extends Controller
         return $this->cidadeService->editar($request->all(), $id);
     }
 
+    public function excluir($id)
+    {
+        return $this->cidadeService->excluir($id);
+    }
+
 }
