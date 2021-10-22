@@ -3,17 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\CidadeService;
+use App\Models\Cidade;
 
 class CidadeController extends Controller
 {
+    /**
+     * @var CidadeService
+     */
+    protected $cidadeService;
+
+    public function __construct(CidadeService $cidadeService)
+    {
+        $this->cidadeService = $cidadeService;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return "Teste";
+    public function listar(Request $request)
+    {    
+        return $this->cidadeService->listar($request->all());
     }
 
     /**
@@ -23,7 +34,7 @@ class CidadeController extends Controller
      */
     public function create()
     {
-        return "Teste2";
+        //
     }
 
     /**
