@@ -43,16 +43,15 @@ class CidadeService
                 'integer' => 'O :attribute deve ser inteiro'
             ];
 
-            Log::debug('Dados', array('dados'=>$dados));
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
 
             if ($validacao->fails()) {
                 return $validacao->messages();
             }
 
-            $this->repository->cadastrar($dados);
+            $retorno = $this->repository->cadastrar($dados);
 
-            return 'Cidade cadastrada com sucesso';
+            return $retorno;
 
         }catch(\Exception $ex){
             return "Erro ao efetuar o cadastro de Cidade. " . $ex->getMessage();

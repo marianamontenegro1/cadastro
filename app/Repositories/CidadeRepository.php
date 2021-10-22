@@ -3,12 +3,11 @@
 namespace App\Repositories;
 
 use App\Models\Cidade;
-use Illuminate\Database\Eloquent\Model;
 
 class CidadeRepository
-{    
-    
-    protected $model = Cidade::class;    
+{
+
+    protected $model = Cidade::class;
 
     public function listarTodos()
     {
@@ -36,8 +35,14 @@ class CidadeRepository
         return $retorno;
     }
 
-    public function cadastrar(array $data)
+    public function cadastrar(array $dados)
     {
-        return $this->model::create($data);
+        $cidade = new Cidade();
+
+        $cidade->grupo_id = $dados['id_grupos'];
+        $cidade->nome = $dados['nome'];
+        $cidade->save();
+
+        return $cidade;
     }
 }
