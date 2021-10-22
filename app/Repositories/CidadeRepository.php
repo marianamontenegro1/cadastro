@@ -45,4 +45,15 @@ class CidadeRepository
 
         return $cidade;
     }
+
+    public function editar(array $dados, $id)
+    {
+        $cidade = Cidade::findOrFail($id);
+
+        if(isset($dados['id_grupos'])) $cidade->grupo_id = $dados['id_grupos'];
+        if(isset($dados['nome'])) $cidade->nome = $dados['nome'];
+        $cidade->save();
+
+        return $cidade;
+    }
 }

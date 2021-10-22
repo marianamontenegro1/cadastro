@@ -58,4 +58,35 @@ class CidadeService
         }
 
     }
+
+    public function editar($dados, $id)
+    {
+        try{
+            if(empty($dados)){
+                return "Favor informar o campo a ser alterado.";
+            }
+
+            $regrasValidacao = [
+                'nome' => 'nullable|max:50',
+                'id_grupos' => 'nullable|integer',
+            ];
+
+            $mensagens = [
+                'max' => 'O :attribute não pode conter mais de 50 caracteres.',
+                'integer' => 'O :attribute deve ser inteiro'
+            ];
+
+            $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
+
+            if ($validacao->fails()) {
+                return $validacao->messages();
+            }
+
+            return $this->repository->editar($dados, $id);
+
+        }catch (\Exception $ex){
+            return "Erro ao efetuar a atualização de Cidade. " . $ex->getMessage();
+        }
+    }
+
 }
