@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\GrupoController;
+use App\Http\Controllers\CampanhaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,9 @@ Route::prefix('grupo')->group(function () {
     Route::Delete('/excluir/{id}', [GrupoController::class, 'excluir']);
 });
 
+Route::prefix('campanha')->group(function () {
+    Route::get('/listar', [CampanhaController::class, 'listar']);
+    Route::Post('/cadastrar', [CampanhaController::class, 'cadastrar']);
+    Route::Put('/editar/{id}', [CampanhaController::class, 'editar']);
+    Route::Delete('/excluir/{id}', [CampanhaController::class, 'excluir']);
+});
