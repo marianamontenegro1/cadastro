@@ -57,6 +57,14 @@ class CampanhaRepository
         return $campanha;
     }
 
+    public function excluir($id)
+    {
+        $campanha = Campanha::findOrFail($id);
+        $campanha->delete();
+
+        return 'Excluído com sucesso';
+    }
+
     public function listarAtivoPorGrupo($idGrupo){
         $campanha = DB::table('campanhas')
             ->join('grupo_campanha', 'campanhas.id', '=', 'grupo_campanha.campanha_id')

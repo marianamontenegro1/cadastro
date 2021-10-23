@@ -31,4 +31,9 @@ class CampanhaController extends Controller
         return $this->campanhaService->editar($request->all(), $id);
     }
 
+    public function excluir($id)
+    {
+        return $this->campanhaService->excluir($id);
+    }
+
 }

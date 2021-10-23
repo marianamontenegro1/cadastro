@@ -104,3 +104,9 @@ PUT: /campanha/editar/{id}
     "flg_ativo": "N"    
 }
 ```
+* Excluir 
+```
+DELETE: /campanha/excluir/{id}
+```
+
+-------------

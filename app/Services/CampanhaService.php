@@ -53,7 +53,7 @@ class CampanhaService
             return $retorno;
 
         }catch(\Exception $ex){
-            return "Erro ao efetuar o cadastro de Cidade. " . $ex->getMessage();
+            return "Erro ao efetuar o cadastro da Campanha. " . $ex->getMessage();
         }
 
     }
@@ -85,7 +85,29 @@ class CampanhaService
             return $this->repository->editar($dados, $id);
 
         }catch (\Exception $ex){
-            return "Erro ao efetuar a atualização de Cidade. " . $ex->getMessage();
+            return "Erro ao efetuar a atualização da Campanha. " . $ex->getMessage();
+        }
+    }
+
+    public function excluir($id)
+    {
+        try {
+            $dados = ['id' => $id];
+            $regrasValidacao = ['id' => 'required|integer'];
+            $mensagens = [
+                'required' => 'O :attribute é obrigatório.',
+                'integer' => 'O :attribute deve ser inteiro'
+            ];
+
+            $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
+            if ($validacao->fails()) {
+                return $validacao->messages();
+            }
+
+            return $this->repository->excluir($id);
+
+        }catch (\Exception $ex){
+            return "Erro ao efetuar a exclusão da Campanha. " . $ex->getMessage();
         }
     }
 
