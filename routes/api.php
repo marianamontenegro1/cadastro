@@ -31,6 +31,7 @@ Route::prefix('cidade')->group(function () {
 Route::prefix('grupo')->group(function () {
     Route::get('/listar', [GrupoController::class, 'listar']);
     Route::Post('/cadastrar', [GrupoController::class, 'cadastrar']);
+    Route::Post('/cadastrar-campanha', [GrupoController::class, 'cadastrarCampanha']);
     Route::Put('/editar/{id}', [GrupoController::class, 'editar']);
     Route::Delete('/excluir/{id}', [GrupoController::class, 'excluir']);
 });

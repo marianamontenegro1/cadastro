@@ -39,4 +39,14 @@ class GrupoRepository
 
         return $grupo;
     }
+
+    public function editar(array $dados, $id)
+    {
+        $grupo = Grupo::findOrFail($id);
+
+        $grupo->nome = $dados['nome'];
+        $grupo->save();
+
+        return $grupo;
+    }
 }

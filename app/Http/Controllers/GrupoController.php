@@ -26,4 +26,14 @@ class GrupoController extends Controller
     {
         return $this->grupoService->cadastrar($request->all());
     }
+
+    public function editar(Request $request, $id)
+    {
+        return $this->grupoService->editar($request->all(), $id);
+    }
+
+    public function cadastrarCampanha(Request $request)
+    {
+        return $this->grupoService->cadastrarCampanha($request->all());
+    }
 }

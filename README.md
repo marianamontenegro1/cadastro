@@ -63,9 +63,9 @@ POST: /grupo/cadastrar-campanha
 
 * Editar
 ```
-POST: /grupo/editar/{id}
+PUT: /grupo/editar/{id}
 {
-    "nome":"Cidade de teste"    
+    "nome":"Grupo Alterado"    
 }
 ```
 
