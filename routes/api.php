@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\CampanhaController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\DescontoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +43,11 @@ Route::prefix('campanha')->group(function () {
     Route::Post('/cadastrar', [CampanhaController::class, 'cadastrar']);
     Route::Put('/editar/{id}', [CampanhaController::class, 'editar']);
     Route::Delete('/excluir/{id}', [CampanhaController::class, 'excluir']);
+});
+
+Route::prefix('produto')->group(function () {
+    Route::get('/listar', [ProdutoController::class, 'listar']);
+    Route::Post('/cadastrar', [ProdutoController::class, 'cadastrar']);
+    Route::Put('/editar/{id}', [ProdutoController::class, 'editar']);
+    Route::Delete('/excluir/{id}', [ProdutoController::class, 'excluir']);
 });

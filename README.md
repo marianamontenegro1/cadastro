@@ -5,12 +5,9 @@
 * Listar
 ```
 GET: /cidade/listar
-
 Parâmetros: id, nome e grupo_id
 ```
-
-*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os registros de cidade cadastros.*
-
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos as cidade cadastros.*
 * Cadastrar
 ```
 POST: /cidade/cadastrar
@@ -38,10 +35,9 @@ DELETE: /cidade/excluir/{id}
 * Listar 
 ```
 GET: /grupo/listar
-
 Parâmetros: id, nome
 ```
-*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os registros de grupos cadastros.*
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os grupos cadastros.*
 
 * Cadastrar
 ```
@@ -80,11 +76,10 @@ DELETE: /grupo/excluir/{id}
 * Listar 
 ```
 GET: /campanha/listar
-
 Parâmetros: id, nome, flg_ativo
 ```
 
-*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os registros de campanhas cadastros.*
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos as campanhas cadastros.*
 
 * Cadastrar
 ```
@@ -108,5 +103,25 @@ PUT: /campanha/editar/{id}
 ```
 DELETE: /campanha/excluir/{id}
 ```
-
 -------------
+## Rotas Produto
+
+* Listar 
+```
+GET: /produto/listar
+Parâmetros: id, nome, valor, campanha_id, desconto_id
+```
+
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os produtos cadastros.*
+
+* Cadastrar
+```
+POST: /produto/cadastrar
+{
+    "nome":"Produto 4",
+    "valor": 3.49,
+    "campanha_id": 1,
+    "desconto_id": 1
+}
+```
+*Obs: Os parâmetros campanha_id e desconto_id são opcionais*
