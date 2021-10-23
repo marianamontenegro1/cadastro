@@ -67,4 +67,12 @@ class ProdutoRepository
 
         return $produto;
     }
+
+    public function excluir($id)
+    {
+        $produto = Produto::findOrFail($id);
+        $produto->delete();
+
+        return 'Excluído com sucesso';
+    }
 }

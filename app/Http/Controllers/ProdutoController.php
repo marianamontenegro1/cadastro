@@ -31,4 +31,9 @@ class ProdutoController extends Controller
     {
         return $this->produtoService->editar($request->all(), $id);
     }
+
+    public function excluir($id)
+    {
+        return $this->produtoService->excluir($id);
+    }
 }

@@ -135,3 +135,8 @@ PUT: /produto/editar/{id}
     "desconto_id": 1   
 }
 ```
+* Excluir 
+```
+DELETE: /produto/excluir/{id}
+```
+----------
