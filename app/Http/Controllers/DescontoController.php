@@ -26,4 +26,9 @@ class DescontoController extends Controller
     {
         return $this->descontoService->cadastrar($request->all());
     }
+
+    public function editar(Request $request, $id)
+    {
+        return $this->descontoService->editar($request->all(), $id);
+    }
 }

@@ -157,3 +157,11 @@ POST: /desconto/cadastrar
     "valor": 10
 }
 ```
+* Editar
+```
+PUT: /desconto/editar/{id}
+{          
+    "nome": "Desconto Alterado",
+    "valor": 20
+}
+```

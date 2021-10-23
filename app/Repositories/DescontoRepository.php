@@ -44,4 +44,15 @@ class DescontoRepository
 
         return $desconto;
     }
+
+    public function editar(array $dados, $id)
+    {
+        $desconto = Desconto::findOrFail($id);
+
+        if(isset($dados['nome'])) $desconto->nome = $dados['nome'];
+        if(isset($dados['valor'])) $desconto->valor = $dados['valor'];
+        $desconto->save();
+
+        return $desconto;
+    }
 }
