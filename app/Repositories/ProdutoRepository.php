@@ -54,4 +54,17 @@ class ProdutoRepository
 
         return $produto;
     }
+
+    public function editar(array $dados, $id)
+    {
+        $produto = Produto::findOrFail($id);
+
+        if(isset($dados['nome'])) $produto->nome = $dados['nome'];
+        if(isset($dados['valor'])) $produto->valor = $dados['valor'];
+        if(isset($dados['campanha_id'])) $produto->campanha_id = $dados['campanha_id'];
+        if(isset($dados['desconto_id'])) $produto->desconto_id = $dados['desconto_id'];
+        $produto->save();
+
+        return $produto;
+    }
 }

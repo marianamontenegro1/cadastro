@@ -26,4 +26,9 @@ class ProdutoController extends Controller
     {
         return $this->produtoService->cadastrar($request->all());
     }
+
+    public function editar(Request $request, $id)
+    {
+        return $this->produtoService->editar($request->all(), $id);
+    }
 }

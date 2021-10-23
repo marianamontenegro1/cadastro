@@ -124,4 +124,14 @@ POST: /produto/cadastrar
     "desconto_id": 1
 }
 ```
-*Obs: Os parâmetros campanha_id e desconto_id são opcionais*
+*Obs: Os parâmetros campanha_id e desconto_id são opcionais.*
+* Editar
+```
+PUT: /produto/editar/{id}
+{
+    "nome":"Produto Alterado",
+    "valor": 3.49,
+    "campanha_id": 1,
+    "desconto_id": 1   
+}
+```
