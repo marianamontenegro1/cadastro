@@ -35,6 +35,17 @@ class CampanhaRepository
         return $retorno;
     }
 
+    public function cadastrar(array $dados)
+    {
+        $campanha = new Campanha();
+
+        $campanha->nome = $dados['nome'];
+        if(isset($dados['flg_ativo'])) $campanha->flg_ativo = $dados['flg_ativo'];
+        $campanha->save();
+
+        return $campanha;
+    }
+
     public function listarAtivoPorGrupo($idGrupo){
         $campanha = DB::table('campanhas')
             ->join('grupo_campanha', 'campanhas.id', '=', 'grupo_campanha.campanha_id')

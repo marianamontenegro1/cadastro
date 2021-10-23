@@ -21,4 +21,9 @@ class CampanhaController extends Controller
     {
         return $this->campanhaService->listar($request->all());
     }
+    public function cadastrar(Request $request)
+    {
+        return $this->campanhaService->cadastrar($request->all());
+    }
+
 }

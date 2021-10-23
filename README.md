@@ -6,10 +6,10 @@
 ```
 GET: /cidade/listar
 
-Parametros: id, nome e grupo_id
+Parâmetros: id, nome e grupo_id
 ```
 
-Obs: Caso seja efetuada a busca sem passar parametro, irá retornar todos os registros de cidade cadastros.
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os registros de cidade cadastros.*
 
 * Cadastrar
 ```
@@ -39,9 +39,9 @@ DELETE: /cidade/excluir/{id}
 ```
 GET: /grupo/listar
 
-Parametros: id, nome
+Parâmetros: id, nome
 ```
-Obs: Caso seja efetuada a busca sem passar parametro, irá retornar todos os registros de grupos cadastros.
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os registros de grupos cadastros.*
 
 * Cadastrar
 ```
@@ -81,10 +81,18 @@ DELETE: /grupo/excluir/{id}
 ```
 GET: /campanha/listar
 
-Parametros: id, nome, flg_ativo
+Parâmetros: id, nome, flg_ativo
 ```
 
-Obs: Caso seja efetuada a busca sem passar parametro, irá retornar todos os registros de campanhas cadastros.
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os registros de campanhas cadastros.*
 
-
+* Cadastrar
+```
+POST: /campanha/cadastrar
+{ 
+    "nome":"Campanha de Teste",
+    "flg_ativo": "S"
+}
+```
+*Obs: O parâmetro flg_ativo é opcional, caso não seja informado, o valor padrão é S.*
 
