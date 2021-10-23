@@ -51,6 +51,16 @@ POST: /grupo/cadastrar
 }
 ```
 
+* Cadastrar Campanha do Grupo
+```
+POST: /grupo/cadastrar-campanha
+{
+    "grupo_id": "1",
+    "campanha_id":"1"
+}
+```
+
+
 * Editar
 ```
 POST: /grupo/editar/{id}
