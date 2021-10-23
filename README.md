@@ -96,3 +96,11 @@ POST: /campanha/cadastrar
 ```
 *Obs: O parâmetro flg_ativo é opcional, caso não seja informado, o valor padrão é S.*
 
+* Editar
+```
+PUT: /campanha/editar/{id}
+{
+    "nome":"Campanha de Teste",
+    "flg_ativo": "N"    
+}
+```
