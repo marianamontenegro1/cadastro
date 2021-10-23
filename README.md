@@ -140,3 +140,12 @@ PUT: /produto/editar/{id}
 DELETE: /produto/excluir/{id}
 ```
 ----------
+## Rotas Desconto
+
+* Listar 
+```
+GET: /desconto/listar
+Parâmetros: id, nome e valor
+```
+
+*Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os descontos cadastros.*

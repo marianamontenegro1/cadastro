@@ -51,3 +51,10 @@ Route::prefix('produto')->group(function () {
     Route::Put('/editar/{id}', [ProdutoController::class, 'editar']);
     Route::Delete('/excluir/{id}', [ProdutoController::class, 'excluir']);
 });
+
+Route::prefix('desconto')->group(function () {
+    Route::get('/listar', [DescontoController::class, 'listar']);
+    Route::Post('/cadastrar', [DescontoController::class, 'cadastrar']);
+    Route::Put('/editar/{id}', [DescontoController::class, 'editar']);
+    Route::Delete('/excluir/{id}', [DescontoController::class, 'excluir']);
+});
