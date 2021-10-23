@@ -99,6 +99,28 @@ class GrupoService
         }
     }
 
+    public function excluir($id)
+    {
+        try {
+            $dados = ['id' => $id];
+            $regrasValidacao = ['id' => 'required|integer'];
+            $mensagens = [
+                'required' => 'O :attribute é obrigatório.',
+                'integer' => 'O :attribute deve ser inteiro'
+            ];
+
+            $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
+            if ($validacao->fails()) {
+                return $validacao->messages();
+            }
+
+            return $this->repository->excluir($id);
+
+        }catch (\Exception $ex){
+            return "Erro ao efetuar a exclusão do Grupo. " . $ex->getMessage();
+        }
+    }
+
     public function cadastrarCampanha($dados)
     {
         try{

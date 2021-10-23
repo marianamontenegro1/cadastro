@@ -49,4 +49,12 @@ class GrupoRepository
 
         return $grupo;
     }
+
+    public function excluir($id)
+    {
+        $grupo = Grupo::findOrFail( $id );
+        $grupo->delete();
+
+        return 'Excluído com sucesso';
+    }
 }

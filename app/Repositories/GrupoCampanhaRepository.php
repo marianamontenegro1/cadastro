@@ -16,4 +16,12 @@ class GrupoCampanhaRepository
 
         return $grupoCampanha;
     }
+
+    public function excluir($id)
+    {
+        $grupoCampanha = GrupoCampanha::findOrFail($id);
+        $grupoCampanha->delete();
+
+        return 'Excluído com sucesso';
+    }
 }

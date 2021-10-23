@@ -60,13 +60,17 @@ POST: /grupo/cadastrar-campanha
 }
 ```
 
-
 * Editar
 ```
 PUT: /grupo/editar/{id}
 {
     "nome":"Grupo Alterado"    
 }
+```
+
+* Excluir 
+```
+DELETE: /grupo/excluir/{id}
 ```
 
 -------------

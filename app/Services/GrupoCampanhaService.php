@@ -24,4 +24,13 @@ class GrupoCampanhaService
             throw new \Exception($ex->getMessage());
         }
     }
+
+    public function excluir($id)
+    {
+        try{
+            return $this->repository->excluir($id);
+        }catch (\Exception $ex){
+            throw new \Exception($ex->getMessage());
+        }
+    }
 }

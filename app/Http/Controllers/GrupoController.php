@@ -32,6 +32,11 @@ class GrupoController extends Controller
         return $this->grupoService->editar($request->all(), $id);
     }
 
+    public function excluir($id)
+    {
+        return $this->grupoService->excluir($id);
+    }
+
     public function cadastrarCampanha(Request $request)
     {
         return $this->grupoService->cadastrarCampanha($request->all());
