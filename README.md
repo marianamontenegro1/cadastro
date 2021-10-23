@@ -149,3 +149,11 @@ Parâmetros: id, nome e valor
 ```
 
 *Obs: Caso seja efetuada a busca sem passar parâmetro, irá retornar todos os descontos cadastros.*
+* Cadastrar
+```
+POST: /desconto/cadastrar
+{       
+    "nome": "Desconto 10%",
+    "valor": 10
+}
+```

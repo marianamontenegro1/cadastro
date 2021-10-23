@@ -33,4 +33,15 @@ class DescontoRepository
 
         return $retorno;
     }
+
+    public function cadastrar(array $dados)
+    {
+        $desconto = new Desconto();
+
+        $desconto->nome = $dados['nome'];
+        $desconto->valor = $dados['valor'];
+        $desconto->save();
+
+        return $desconto;
+    }
 }
