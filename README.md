@@ -1,5 +1,5 @@
 # Arquitetura
-Laravel Frameword versão 8.65.0<br>
+Laravel Framework versão 8.65.0<br>
 PHP versão 7.3.31<br>
 Banco de dados MySQL
 
