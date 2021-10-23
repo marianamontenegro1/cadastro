@@ -1,3 +1,8 @@
+# Arquitetura
+Laravel Frameword versão 8.65.0
+PHP versão 7.3.31
+Banco de dados MySQL
+
 # Dados para acesso as rotas
 
 ## Cidade
@@ -164,4 +169,8 @@ PUT: /desconto/editar/{id}
     "nome": "Desconto Alterado",
     "valor": 20
 }
+```
+* Excluir 
+```
+DELETE: /desconto/excluir/{id}
 ```

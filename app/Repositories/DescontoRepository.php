@@ -55,4 +55,12 @@ class DescontoRepository
 
         return $desconto;
     }
+
+    public function excluir($id)
+    {
+        $desconto = Desconto::findOrFail($id);
+        $desconto->delete();
+
+        return 'Excluído com sucesso';
+    }
 }

@@ -31,4 +31,9 @@ class DescontoController extends Controller
     {
         return $this->descontoService->editar($request->all(), $id);
     }
+
+    public function excluir($id)
+    {
+        return $this->descontoService->excluir($id);
+    }
 }
