@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Repositories\GrupoRepository;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\MsgErroResource;
+use App\Http\Resources\MsgSucessoResource;
 
 class GrupoService
 {
@@ -35,9 +37,9 @@ class GrupoService
     public function listar($dados)
     {
         if(empty($dados)){
-            return $this->repository->listarTodos();
+            return new MsgSucessoResource($this->repository->listarTodos());
         }else{
-            return $this->repository->listarComFiltro($dados);
+            return new MsgSucessoResource($this->repository->listarComFiltro($dados));
         }
 
     }
@@ -57,15 +59,15 @@ class GrupoService
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
 
             if ($validacao->fails()) {
-                return $validacao->messages();
+                return new MsgErroResource($validacao->messages());
             }
 
             $retorno = $this->repository->cadastrar($dados);
 
-            return $retorno;
+            return new MsgSucessoResource($retorno);
 
         }catch(\Exception $ex){
-            return "Erro ao efetuar o cadastro de Grupo. " . $ex->getMessage();
+            return new MsgErroResource($ex->getMessage());
         }
 
     }
@@ -74,7 +76,7 @@ class GrupoService
     {
         try{
             if(empty($dados)){
-                return "Favor informar o campo a ser alterado.";
+                return new MsgErroResource('Favor informar o campo a ser alterado.');
             }
 
             $regrasValidacao = [
@@ -89,13 +91,13 @@ class GrupoService
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
 
             if ($validacao->fails()) {
-                return $validacao->messages();
+                return new MsgErroResource($validacao->messages());
             }
 
-            return $this->repository->editar($dados, $id);
+            return new MsgSucessoResource($this->repository->editar($dados, $id));
 
         }catch (\Exception $ex){
-            return "Erro ao efetuar a atualização do Grupo. " . $ex->getMessage();
+            return new MsgErroResource($ex->getMessage());
         }
     }
 
@@ -111,13 +113,13 @@ class GrupoService
 
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
             if ($validacao->fails()) {
-                return $validacao->messages();
+                return new MsgErroResource($validacao->messages());
             }
 
-            return $this->repository->excluir($id);
+            return new MsgSucessoResource($this->repository->excluir($id));
 
         }catch (\Exception $ex){
-            return "Erro ao efetuar a exclusão do Grupo. " . $ex->getMessage();
+            return new MsgErroResource($ex->getMessage());
         }
     }
 
@@ -137,21 +139,21 @@ class GrupoService
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
 
             if ($validacao->fails()) {
-                return $validacao->messages();
+                return new MsgErroResource($validacao->messages());
             }
 
             $validaCampanhaAtiva = $this->campanhaService->listarAtivoPorGrupo($dados['grupo_id']);
 
             if($validaCampanhaAtiva->isEmpty()){
-                $criarGrupoCampanha = $this->grupoCampanhaService->cadastrar($dados);
+                $this->grupoCampanhaService->cadastrar($dados);
             }else{
-                return 'O grupo já possui uma campanha ativa';
+                return new MsgErroResource('O grupo já possui uma campanha ativa');
             }
 
-            return 'Cadastrado com sucesso';
+            return new MsgSucessoResource('Cadastrado com sucesso');
 
         }catch (\Exception $ex){
-            return "Erro ao efetuar o cadastro de campanha de Grupo. " . $ex->getMessage();
+            return new MsgErroResource($ex->getMessage());
         }
     }
 }
