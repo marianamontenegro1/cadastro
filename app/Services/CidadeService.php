@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use App\Repositories\CidadeRepository;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
+use App\Http\Resources\MsgErroResource;
+use App\Http\Resources\MsgSucessoResource;
 
 class CidadeService
 {
@@ -22,9 +22,9 @@ class CidadeService
     public function listar($dados)
     {
         if(empty($dados)){
-            return $this->repository->listarTodos();
+            return new MsgSucessoResource($this->repository->listarTodos());
         }else{
-            return $this->repository->listarComFiltro($dados);
+            return new MsgSucessoResource($this->repository->listarComFiltro($dados));
         }
 
     }
@@ -34,7 +34,7 @@ class CidadeService
         try{
             $regrasValidacao = [
                 'nome' => 'required|max:50',
-                'id_grupos' => 'required|integer',
+                'grupo_id' => 'required|integer',
             ];
 
             $mensagens = [
@@ -46,15 +46,15 @@ class CidadeService
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
 
             if ($validacao->fails()) {
-                return $validacao->messages();
+                return new MsgErroResource($validacao->messages());
             }
 
             $retorno = $this->repository->cadastrar($dados);
 
-            return $retorno;
+            return new MsgSucessoResource($retorno);
 
         }catch(\Exception $ex){
-            return "Erro ao efetuar o cadastro de Cidade. " . $ex->getMessage();
+            return new MsgErroResource($ex->getMessage());
         }
 
     }
@@ -63,12 +63,12 @@ class CidadeService
     {
         try{
             if(empty($dados)){
-                return "Favor informar o campo a ser alterado.";
+                return new MsgErroResource('Favor informar o campo a ser alterado.');
             }
 
             $regrasValidacao = [
                 'nome' => 'nullable|max:50',
-                'id_grupos' => 'nullable|integer',
+                'grupo_id' => 'nullable|integer',
             ];
 
             $mensagens = [
@@ -79,13 +79,13 @@ class CidadeService
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
 
             if ($validacao->fails()) {
-                return $validacao->messages();
+                return new MsgErroResource($validacao->messages());
             }
 
-            return $this->repository->editar($dados, $id);
+            return new MsgSucessoResource($this->repository->editar($dados, $id));
 
         }catch (\Exception $ex){
-            return "Erro ao efetuar a atualização de Cidade. " . $ex->getMessage();
+            return new MsgErroResource($ex->getMessage());
         }
     }
 
@@ -101,13 +101,13 @@ class CidadeService
 
             $validacao = Validator::make($dados, $regrasValidacao, $mensagens);
             if ($validacao->fails()) {
-                return $validacao->messages();
+                return new MsgErroResource($validacao->messages());
             }
 
-            return $this->repository->excluir($id);
+            return new MsgSucessoResource($this->repository->excluir($id));
 
         }catch (\Exception $ex){
-            return "Erro ao efetuar a exclusão de Cidade. " . $ex->getMessage();
+            return new MsgErroResource($ex->getMessage());
         }
     }
 

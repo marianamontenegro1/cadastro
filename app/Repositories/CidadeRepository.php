@@ -39,7 +39,7 @@ class CidadeRepository
     {
         $cidade = new Cidade();
 
-        $cidade->grupo_id = $dados['id_grupos'];
+        $cidade->grupo_id = $dados['grupo_id'];
         $cidade->nome = $dados['nome'];
         $cidade->save();
 
@@ -50,7 +50,7 @@ class CidadeRepository
     {
         $cidade = Cidade::findOrFail($id);
 
-        if(isset($dados['id_grupos'])) $cidade->grupo_id = $dados['id_grupos'];
+        if(isset($dados['grupo_id'])) $cidade->grupo_id = $dados['grupo_id'];
         if(isset($dados['nome'])) $cidade->nome = $dados['nome'];
         $cidade->save();
 

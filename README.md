@@ -18,7 +18,7 @@ Parâmetros: id, nome e grupo_id
 POST: /cidade/cadastrar
 {
     "nome":"Cidade de teste",
-    "id_grupos": 1
+    "grupo_id": 1
 }
 ```
 
@@ -27,6 +27,7 @@ POST: /cidade/cadastrar
 PUT: /cidade/editar/{id}
 {
     "nome":"Cidade de teste editar",
+    "grupo_id": 1
 }
 ```
 
